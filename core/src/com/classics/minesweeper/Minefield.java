@@ -34,7 +34,7 @@ public class Minefield {
     private void createMinefield() {
         boxes = new MineBox[4];
         for (int i = 0; i < 4; i++) {
-            boxes[i] = new MineBox(getBoxX(), getBoxY(), BOX_HEIGHT, BOX_WIDTH);
+            boxes[i] = new MineBox(getBoxX(), getBoxY(), BOX_WIDTH, BOX_HEIGHT);
             nextBox();
         }
     }
@@ -50,14 +50,11 @@ public class Minefield {
     private void nextBox() {
         if (curRow == rowLength - 1) {
             curRow = 0;
+            curCol++;
         } else {
             curRow++;
         }
         
-        if (curCol == colLength - 1) {
-            curCol = 0;
-        }  else {
-            curCol++;
-        }
+
     }
 }

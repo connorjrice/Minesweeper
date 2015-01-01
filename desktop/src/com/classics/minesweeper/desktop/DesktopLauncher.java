@@ -7,6 +7,9 @@ import com.classics.minesweeper.MineLogic;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+                config.title = "Minesweeper";
+                config.width = 480;
+                config.height = 800;
 		new LwjglApplication(new MineLogic(), config);
 	}
 }

@@ -1,7 +1,6 @@
 package com.classics.minesweeper;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
  *
@@ -9,15 +8,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public class Assets {
     
-    private SpriteBatch batcher;
     private Texture square;
     
-    public Assets(SpriteBatch batcher) {
-        this.batcher = batcher;
+    public Assets() {
         initAssets();
     }
     
     private void initAssets() {
         square = new Texture("square.png");
+    }
+    
+    public Texture getSquare() {
+        return square;
     }
 }

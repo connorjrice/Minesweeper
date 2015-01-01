@@ -1,9 +1,6 @@
 package com.classics.minesweeper;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -17,19 +14,30 @@ public class MineLogic extends Game {
     private Assets assets;
     private Renderer render;
     private BitmapFont font;
+    private Minefield minefield;
 
     @Override
     public void create() {
         batcher = new SpriteBatch();
-        assets = new Assets(batcher);
-        render = new Renderer(batcher);
-        font = new BitmapFont();    
+        assets = new Assets();
+        render = new Renderer(batcher, this);
+        font = new BitmapFont();
+        minefield = new Minefield();
+        //setScreen(new MainMenu(this));
     }
     
     @Override
     public void render() {
-        super.render();   
-        render.render();
+        super.render();  
+        render.renderField(minefield.getBoxes());
+    }
+    
+    public SpriteBatch getBatcher() {
+        return batcher;
+    }
+    
+    public Assets getAssets() {
+        return assets;
     }
     
     @Override

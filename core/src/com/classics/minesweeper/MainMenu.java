@@ -1,62 +1,41 @@
 package com.classics.minesweeper;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 /**
  *
  * @author Connor
  */
-public class MainMenu implements Screen {
+public class MainMenu extends ScreenAdapter {
     
-    private final Game g;
+    private MineLogic g;
     
     private OrthographicCamera cam;
     
-    public MainMenu(final Game g) {
+    public MainMenu(MineLogic g) {
         this.g = g;
-        initAssets();
+        initCamera();
     }
     
-    private void initAssets() {
+    private void initCamera() {
         cam = new OrthographicCamera();
         cam.setToOrtho(false);
     }
-
-    @Override
-    public void show() {
-        
-    }
-
+    
     @Override
     public void render(float f) {
         
     }
-
-    @Override
-    public void resize(int i, int i1) {
-        
+    
+    public void draw() {
+        GL20 gl = Gdx.gl;
+        gl.glClearColor(1, 0, 0, 1);
+        gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        g.getBatcher().begin();
     }
 
-    @Override
-    public void pause() {
-        
-    }
-
-    @Override
-    public void resume() {
-        
-    }
-
-    @Override
-    public void hide() {
-        
-    }
-
-    @Override
-    public void dispose() {
-        
-    }
     
 }
